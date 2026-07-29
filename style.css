@@ -217,6 +217,115 @@ a {
   margin-bottom: 45px;
 }
 
+/* ===== EXPERIENCE (TIMELINE) ===== */
+.timeline {
+  position: relative;
+  padding-left: 40px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 7px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent), rgba(232, 130, 60, 0.05));
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 48px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 5px;
+  left: -40px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 5px rgba(232, 130, 60, 0.15), 0 0 14px rgba(232, 130, 60, 0.5);
+}
+
+.timeline-date {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(232, 130, 60, 0.1);
+  border: 1px solid rgba(232, 130, 60, 0.25);
+  border-radius: 20px;
+  padding: 5px 14px;
+  margin-bottom: 14px;
+}
+
+.timeline-card {
+  position: relative;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 4px 12px 12px 4px;
+  padding: 28px 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.timeline-card:hover {
+  transform: translateX(6px);
+  border-color: rgba(232, 130, 60, 0.4);
+  border-left-color: var(--accent);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
+}
+
+.timeline-card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  line-height: 1.35;
+}
+
+.timeline-company {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  margin-bottom: 18px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.timeline-card ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.timeline-card li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 0.92rem;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+.timeline-card li::before {
+  content: "\f0da";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  left: 0;
+  top: 1px;
+  font-size: 0.75rem;
+  color: var(--accent);
+}
+
 /* ===== ABOUT ===== */
 .about-grid {
   display: grid;
@@ -657,6 +766,28 @@ a {
 
   .project-card {
     flex-direction: column;
+  }
+
+  .timeline {
+    padding-left: 28px;
+  }
+
+  .timeline-dot {
+    left: -28px;
+    width: 13px;
+    height: 13px;
+  }
+
+  .timeline::before {
+    left: 5px;
+  }
+
+  .timeline-card {
+    padding: 22px 20px;
+  }
+
+  .timeline-card h3 {
+    font-size: 1.05rem;
   }
 }
 
