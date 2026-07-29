@@ -49,6 +49,25 @@ const observer = new IntersectionObserver((entries) => {
 
 sections.forEach(section => observer.observe(section));
 
+// Scroll reveal: fade/slide elements into view as they enter the viewport
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const revealEls = document.querySelectorAll('.reveal');
+
+if (prefersReducedMotion) {
+  revealEls.forEach(el => el.classList.add('in-view'));
+} else {
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  revealEls.forEach(el => revealObserver.observe(el));
+}
+
 // Contact form -> reliable mailto link (GET-style, works across browsers)
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
